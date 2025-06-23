@@ -4,8 +4,8 @@
         static $connect = null;
 
         if ($connect == null) {
-            $connect = mysqli_connect('localhost','ETU004018','viSz7oYt','db_s2_ETU004018');
-            // $connect = mysqli_connect('localhost','root','','tumblr');
+            // $connect = mysqli_connect('localhost','ETU004018','viSz7oYt','db_s2_ETU004018');
+            $connect = mysqli_connect('localhost','root','','employees');
 
             if (!$connect) {
                 // Arrête le script et affiche une erreur si la connexion échoue
