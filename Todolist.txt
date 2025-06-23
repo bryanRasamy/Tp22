@@ -1,0 +1,90 @@
+	
+			ETU004018 - ETU003962
+
+
++TABLE MYSQL: 
+	-table membres(id_membre,email,pseudo,pdp); ok
+	-table publication(id_publication,poste,id_membre,date_publication,bio); ok 
+	-table commentaire(id_commentaire,commentaire,id_video,id_membre,date_commentaire); ok 
+	-table favoris(id_favoris,id_video,id_membre,date_favoris); ok
+
++PAGE PHP:
+	-index.php: (Bryan)
+		-redirection vers index.php; ok
+				   	
+	-connection.php: (Hasina)
+		-mets la base de donnee dans une variable; ok
+		
+	-login.php: (Bryan)
+		-formulaire; ok
+		-bouton Connexion; ok   	    
+		
+	-traitementlogin.php: (Hasina) ok
+		-Maka ny valeur tao @ login.php; ok 
+		-comparena ao @ database ny valeur: (Fonction get_membre_connecte) ok
+			-si ao: redirection vers accueil.php;  ok
+			-sinon: redirection vers traitement.php; ok
+			
+	-traitement.php: (Bryan)
+		-Maka ny valeur tao @ Traitementlogin.php; ok
+		-Mettre ces valeurs dans la table membre du database facebook (Fonction inserer_membre); ok
+		-redirection vers login.php; 
+		  	
+	-modele.php: (Hasina)
+		-header; ok
+		-include; ok
+		-footer; ok
+		
+	-accueil.php: (Bryan)
+		-liste des publications (fonction get_all_publication): ok 
+			-nom de l'utilisateur; ok
+			-durer entre maintenant et la date de l'upload; ok
+			-publication; ok
+			-bouton:-like: ok
+				  -Si on clique sur le coeur il se colore en rouge (fonction favoris); ok
+				  -si on clique une deuxieme fois il ne se colore plus (fonction delete_favoris); ok
+				-nombre de like; ok
+			-commentaire (fonction get_commentaire); ok
+			-formulaire pour commentaire + lien vers traitement.php; ok
+				
+	-upload.php: (Hasina)
+		-formulaire pour l'upload; ok 
+		-bouton valider; ok
+		-lien vers traitementajouter.php; ok
+	
+	-traitementajouter.php:(Hasina)
+		-prend le nom de la video/image; ok
+		-le mettre dans la table publications (fonction inserer_publication (Hasina));  ok
+		-redirection vers accueil.php; ok
+	
+		
+	-traitementcommentaire.php: (Bryan)
+		-prend le texte ecrit dans la formulaire commentaire; ok 
+		-prend l'id de l'utilisateur; ok
+		-prend l'id de la publication; ok
+		-les mettre dans la table commentaire (Fonction inserer_commentaire); ok
+		-redirection vers accueil.php; ok
+			
+	-traitementlike.php:(Hasina)
+		-prend l'id de la publication; ok
+		-prend l'id utilisateur; ok
+		-verifier si efa nanisy favoris: (fonction verifier_like) ok
+			-raha mbola tsia: -apetraka ao @ table favoris (fonction inserer_favoris); ok
+			-sinon: -fafana ao @ table favoris (fonction delete_favoris); ok
+		-redirection vers accueil.php; ok
+		
+	-profil.php: (Bryan)
+		-photo de l'utilisateur; ok
+		-pseudo; ok
+		-bio; ok
+		-ses publications; ok
+		
+	-ajouterpdp.php: (Hasina)
+		-formulaire pour l'upload et la bio;  ok
+		-bouton valider; ok
+		-lien vers traitementajouterpdp.php; ok
+		
+	-traitementajouter.php:(Hasina)
+		-prend le nom de l'image; ok
+		-le mettre dans la table membres (fonction upload_pdp_membre);  ok
+		-redirection vers profil.php; ok
