@@ -16,14 +16,19 @@
     <link rel="stylesheet" href=".././assets/bootstrap-icons/font/bootstrap-icons.css">   
 </head>
 <body>
-    <header>
+    <div class="container">
+        <header>
 
-    </header>
-    <main>
-        <div class="container">
-            <?php include($page_format);?>
-        </div>
-    </main>
+        </header>
+        <main>
+            
+                <?php include($page_format);?>
+            
+        </main>
+        <footer class="mt-4">
+            <p class="text-center">&copy; 2025 by Bryan</p>
+        </footer>
+    </div>
     <script src=".././assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
