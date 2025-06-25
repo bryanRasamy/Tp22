@@ -30,4 +30,7 @@ ETU004018 - ETU003962
 	-recherche.php:
 		-
 		
+	-traitementrecherche.php:
+		-
+		
 	-resultatrecherche.php:
