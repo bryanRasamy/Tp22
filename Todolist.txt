@@ -16,10 +16,13 @@ ETU004018 - ETU003889
 		-include; ok
 		-footer; ok
 
-	-listedepartements:
+	-listedepartements.php:
 		-liste de tous les departements avec le manager en cours; ok
 		-lien vers listeemployerpardepartement.php; ok
 
 	-listeemployerpardepartement.php;
 		-liste de tous les employer par departements; ok
 		-lien vers listedepartements; ok
+		
+	-ficheemployer.php:
+		-
