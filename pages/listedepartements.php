@@ -7,7 +7,7 @@
         <h1>Liste des départements</h1>
     </article>
     <article class="row">
-        <table border="1">
+        <table border="1" class="table table-striped table-hover custom-blue-table">
             <tr>
                 <th>Nom du departement</th>
                 <th>Manager en cours</th>
@@ -18,7 +18,7 @@
                 ?>
                 <tr>
                     <td>
-                        <a href="modele.php?page=listeemployerpardepartement&id_departement=<?php echo $liste['dept_no'];?>&nom=<?= $liste['dept_name'];?>">
+                        <a id="a" href="modele.php?page=listeemployerpardepartement&id_departement=<?php echo $liste['dept_no'];?>&nom=<?= $liste['dept_name'];?>">
                             <?= $liste['dept_name'];?>
                         </a>
                     </td>
