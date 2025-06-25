@@ -18,7 +18,27 @@
 <body>
     <div class="container">
         <header>
-
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid">
+                    <a class="navbar-brand fw-bold" href="#">Management</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Home
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="modele.php?page=listedepartements">Liste des departements</a></li>
+                                    <li><a class="dropdown-item" href="modele.php?page=recherche">Recherche</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>   
+            </nav>
         </header>
         <main>
             
@@ -26,7 +46,7 @@
             
         </main>
         <footer class="mt-4">
-            <p class="text-center">&copy; 2025 by Bryan</p>
+            <p class="text-center">&copy; 2025 by Bryan and Hasina</p>
         </footer>
     </div>
     <script src=".././assets/bootstrap/js/bootstrap.bundle.min.js"></script>
