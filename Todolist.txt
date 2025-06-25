@@ -37,9 +37,9 @@ ETU004018 - ETU003962
 	-traitementrecherche.php:
 		-
 		
-	-resultatrecherche.php:
-		-departements
-		-nom 
-		-prenom
-		-age
+	-resultatrecherche.php: ok
+		-departements ok
+		-nom  ok
+		-prenom ok
+		-age ok
 
