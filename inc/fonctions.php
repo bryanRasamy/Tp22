@@ -58,8 +58,9 @@
     }
     
     function get_all_recherche($departement,$nom,$min,$max,$limite){
-        $sql = "SELECT * FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departements ON departements.dept_no=dept_manager.dept_no WHERE dept_name='%s' AND last_name='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' LIMIT '%s',20;";
-        $sql =sprintf($sql,$departement,$nom,$min,$max,$limite);
+        $lim="LIMIT ".$limite.",20";
+        $sql = "SELECT * FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE dept_name='%s' AND last_name='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' '%s';";
+        $sql =sprintf($sql,$departement,$nom,$min,$max,$lim);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
 
