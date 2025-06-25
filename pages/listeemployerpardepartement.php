@@ -11,17 +11,14 @@
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th>Date de naissance</th>
-                <th>Sexe</th>
-                <th>Hire date</th>
             </tr>
             <?php foreach($liste_employer as $liste){ ?>
                 <tr>
-                    <td><?= $liste['last_name'];?></td>
+                    <td>
+                        <a href="modele.php?page=ficheemployer&id_employer=<?php echo $liste['emp_no']?>">
+                            <?= $liste['last_name'];?></td>
+                        </a>
                     <td><?= $liste['first_name'];?></td>
-                    <td><?= $liste['birth_date'];?></td>
-                    <td><?= $liste['gender'];?></td>
-                    <td><?= $liste['hire_date'];?></td>
                 </tr>
             <?php }?>
         </table>

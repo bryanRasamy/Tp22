@@ -25,8 +25,8 @@ ETU004018 - ETU003962
 		-lien vers listedepartements; ok
 		
 	-ficheemployer.php:
-		-information sur l'employer;
-		-historique des salaires;
+		-information sur l'employer; ok
+		-historique des salaires; ok
 		
 	-recherche.php: ok
 		- creation formulaire recherche;ok
