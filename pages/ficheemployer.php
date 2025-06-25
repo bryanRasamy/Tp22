@@ -4,10 +4,10 @@
 ?>
 <section>
     <article class="row">
-        <h2 class="text-center">Fiche de <strong><?=$fiche_employer['last_name']?> <?=$fiche_employer['first_name']?> </strong></h2>
+        <h2 class="text-center">Fiche de <strong style="color:brown"><?=$fiche_employer['last_name']?> <?=$fiche_employer['first_name']?> </strong></h2>
     </article>
     <article class="row">
-        <table border="1 px">
+        <table border="1 px" class="table table-dark table-hover">
             <tr>
                 <th>Nom</th>
                 <td><?= $fiche_employer['last_name'];?></td>
@@ -33,10 +33,10 @@
 </section>
 <section class="row mt-5">
     <article class="row">
-        <h2 class="text-center">Historique des salaires de <strong><?=$fiche_employer['last_name']?> <?=$fiche_employer['first_name']?> </strong></h2>
+        <h2 class="text-center">Historique des salaires de <strong style="color:brown"><?=$fiche_employer['last_name']?> <?=$fiche_employer['first_name']?> </strong></h2>
     </article>
     <article class="row">
-        <table border="1 px">
+        <table border="1 px" class="table table-striped table-hover">
             <tr>
                 <th>Emploie</th>
                 <th>Salaires</th>
