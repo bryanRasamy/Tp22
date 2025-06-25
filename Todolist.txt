@@ -29,10 +29,17 @@ ETU004018 - ETU003962
 		-historique des salaires;
 		
 	-recherche.php:
-		-
+		- creation formulaire recherche;
+			-departements;
+			-nom employee;
+			-age min et max
 		
 	-traitementrecherche.php:
 		-
 		
 	-resultatrecherche.php:
+		-departements
+		-nom 
+		-prenom
+		-age
 
