@@ -36,7 +36,7 @@
     }
 
     function get_fiche_employer($id_employer){
-        $sql="SELECT * FROM employees WHERE emp_no='%s'";
+        $sql="SELECT * FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE employees.emp_no='%s'";
         $sql=sprintf($sql,$id_employer);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=mysqli_fetch_assoc($resultat);
