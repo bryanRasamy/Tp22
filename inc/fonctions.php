@@ -59,10 +59,31 @@
     
     function get_all_recherche($departement,$nom,$min,$max,$limite){
         $lim="LIMIT ".$limite.",20";
+        $dept="%".$departement."%";
         $recherche="%".$nom."%";
-        $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE dept_name='%s' AND last_name LIKE '%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' %s;";
-        $sql =sprintf($sql,$departement,$recherche,$min,$max,$lim);
-        echo $sql;
+
+        if(!empty($departement) && empty($nom) && empty($min) && empty($max)){
+            $sql="SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE dept_name LIKE '%s' %s;";
+            $sql =sprintf($sql,$dept,$lim);
+        }
+
+        if(empty($departement) && !empty($nom) && empty($min) && empty($max)){
+            $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE last_name LIKE '%s' %s;";
+            $sql =sprintf($sql,$recherche,$lim);
+        }
+
+        if(empty($departement) && empty($nom) && !empty($min) && empty($max)){
+            $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' %s;";
+            $sql =sprintf($sql,$min,$lim);
+        }
+
+        if(empty($departement) && empty($nom) && empty($min) && !empty($max)){
+            $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' %s;";
+            $sql =sprintf($sql,$max,$lim);
+        }
+
+        // $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE dept_name='%s' AND last_name LIKE '%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' %s;";
+        // $sql =sprintf($sql,$dept,$recherche,$min,$max,$lim);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
 
