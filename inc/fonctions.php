@@ -62,6 +62,7 @@
         $recherche="%".$nom."%";
         $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE dept_name='%s' AND last_name LIKE '%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' '%s';";
         $sql =sprintf($sql,$departement,$recherche,$min,$max,$lim);
+        echo $sql;
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
 
