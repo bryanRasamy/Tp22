@@ -20,4 +20,12 @@
             <?php } ?>
         </table>
     </article>
+    <article class="row mt-5">
+        <section class="col-2 col-lg-2 col-sm-2">
+            <a href="" type="button" class="btn btn-outline-success">Precedant</a>
+        </section>
+        <section class="col-4 col-lg-4 col-sm-4">
+            <a href="" type="button" class="btn btn-outline-danger">Suivant</a>
+        </section>           
+    </article>
 </section>
