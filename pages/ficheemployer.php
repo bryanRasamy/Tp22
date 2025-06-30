@@ -9,6 +9,10 @@
     <article class="row">
         <table border="1 px" class="table table-striped table-hover custom-striped-table">
             <tr>
+                <th>Departement</th>
+                <td><?= $fiche_employer['dept_name'];?></td>
+            </tr>
+            <tr>
                 <th>Nom</th>
                 <td><?= $fiche_employer['last_name'];?></td>
             </tr>
