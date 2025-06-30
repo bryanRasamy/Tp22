@@ -1,10 +1,5 @@
 <?php 
     $recherche=$_SESSION['reponse'];
-    echo $_SESSION['nom'];
-    echo $_SESSION['limite'];
-    echo $_SESSION['departement'];
-    echo $_SESSION['min'];
-    echo $_SESSION['max'];
 ?>
 <section class="row">
     <article class="row">
