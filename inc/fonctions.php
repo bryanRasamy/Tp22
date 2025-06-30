@@ -59,38 +59,53 @@
     
     function get_all_recherche($departement,$nom,$min,$max,$limite){
         $lim="LIMIT ".$limite.",20";
-        $dept="%".$departement."%";
-        $recherche="%".$nom."%";
 
-        if(!empty($departement) && empty($nom) && empty($min) && empty($max)){
-            $sql="SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE dept_name LIKE '%s' %s;";
-            $sql =sprintf($sql,$dept,$lim);
+        $base_sql = "SELECT dept_name, last_name, first_name, TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no";
+    
+        $conditions = array();  
+        $params = array();      
+        
+        
+        if(!empty($departement)){
+            $conditions[] = "dept_name LIKE '%s'";          
+            $params[] = "%" . $departement . "%";           
         }
-
-        if(empty($departement) && !empty($nom) && empty($min) && empty($max)){
-            $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE last_name LIKE '%s' %s;";
-            $sql =sprintf($sql,$recherche,$lim);
+        
+        if(!empty($nom)){
+            $conditions[] = "last_name LIKE '%s'";          
+            $params[] = "%" . $nom . "%";                   
         }
-
-        if(empty($departement) && empty($nom) && !empty($min) && empty($max)){
-            $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' %s;";
-            $sql =sprintf($sql,$min,$lim);
+        
+        if(!empty($min)){
+            $conditions[] = "TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) >= %d";
+            $params[] = (int)$min;
         }
-
-        if(empty($departement) && empty($nom) && empty($min) && !empty($max)){
-            $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' %s;";
-            $sql =sprintf($sql,$max,$lim);
+        
+        if(!empty($max)){
+            $conditions[] = "TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) <= %d";
+            $params[] = (int)$max;
         }
-
-        // $sql = "SELECT dept_name,last_name,first_name,TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE dept_name='%s' AND last_name LIKE '%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())>='%s' AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE())<='%s' %s;";
-        // $sql =sprintf($sql,$dept,$recherche,$min,$max,$lim);
-        $resultat= mysqli_query(dbconnect(), $sql);
-        $demande=array();
-
-        while($donnee=mysqli_fetch_assoc($resultat)){
-            $demande[]=$donnee;
+        
+        
+        if(!empty($conditions)){
+            $sql = $base_sql . " WHERE " . implode(" AND ", $conditions) . " " . $lim . ";";
+        } else {
+            $sql = $base_sql . " " . $lim . ";";
         }
-
+        
+        
+        if(!empty($params)){
+            $sql = sprintf($sql, ...$params);
+        }
+        
+        $resultat = mysqli_query(dbconnect(), $sql);
+        $demande = array();
+        
+        while($donnee = mysqli_fetch_assoc($resultat)){
+            $demande[] = $donnee;
+        }
+        
         return $demande;
+
     }
 ?>
