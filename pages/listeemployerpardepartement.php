@@ -7,7 +7,7 @@
         <h2 class="text-center">Liste des employer pour le departement <strong><?=$_GET['nom'];?></strong></h2>
     </article>
     <article class="row">
-        <table border="1 px">
+        <table border="1 px" class="table table-striped table-hover custom-blue-table">
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
