@@ -2,7 +2,7 @@
     require("connection.php");
 
     function get_all_departement(){
-        $sql="SELECT * FROM departments";
+        $sql="SELECT * FROM departments ORDER BY dept_name ASC";
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
 
