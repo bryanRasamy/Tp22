@@ -18,6 +18,7 @@ ETU004018 - ETU003962
 
 	-listedepartements.php:
 		-liste de tous les departements avec le manager en cours; ok
+		-colonne nombre employer;
 		-lien vers listeemployerpardepartement.php; ok
 
 	-listeemployerpardepartement.php;
@@ -26,6 +27,7 @@ ETU004018 - ETU003962
 		
 	-ficheemployer.php:
 		-information sur l'employer; ok
+		-mettre l'emploi le plus long;
 		-historique des salaires; ok
 		
 	-recherche.php: ok
@@ -46,4 +48,9 @@ ETU004018 - ETU003962
 		-nom  ok
 		-prenom ok
 		-age ok
+
+	-emploi.php:
+		-liste d'emploi;
+		-nombre d'employer pour chaque emploi;
+		-salaire moyen pour chaque emploi;
 
