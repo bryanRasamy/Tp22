@@ -7,25 +7,23 @@
         $_SESSION['departement']=$_GET['departement'];
         $_SESSION['min']=$_GET['min'];
         $_SESSION['max']=$_GET['max'];
-        $_SESSION['limite']=0;
+        $_SESSION['page']=1;
     }else{
-        if($_GET['a']==1){
-            if($_SESSION['limite']>0){
-                $_SESSION['limite']=$_SESSION['limite']-20;
-            }
-        }else{
-            $_SESSION['limite']=$_SESSION['limite']+20;
-        }
+        $_SESSION['page']=$_GET['pages'];
     }
 
     $nom=$_SESSION['nom'];
     $departement=$_SESSION['departement'];
     $min=$_SESSION['min'];
     $max=$_SESSION['max'];
-    $limite=$_SESSION['limite'];
+    $page=$_SESSION['page'];
+    $limite=(($page-1)*20);
     
 
     $reponse=get_all_recherche($departement,$nom,$min,$max,$limite);
+    $nbr_recherche=count($reponse);
+
+    $_SESSION['nbr']=$nbr_recherche;
     $_SESSION['reponse']=$reponse;
-    header('Location:modele.php?page=resultatrecherche');
+    header("Location:modele.php?page=resultatrecherche&pages=$page");
 ?>

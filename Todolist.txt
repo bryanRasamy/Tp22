@@ -38,9 +38,9 @@ ETU004018 - ETU003962
 			-lien vers tritementrecherche.php; ok
 		
 	-traitementrecherche.php:
-		-Maka ny valeur tao @ formulaire;
-		-verifier les correspondances dans la base;
-		-redirection vers resultatrecherche.php;
+		-Maka ny valeur tao @ formulaire; ok
+		-verifier les correspondances dans la base; ok
+		-redirection vers resultatrecherche.php; ok
 
 		
 	-resultatrecherche.php: ok

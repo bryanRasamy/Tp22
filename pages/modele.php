@@ -30,9 +30,10 @@
                                 <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     Home
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-dark">
+                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="modele.php?page=listedepartements">Liste des departements</a></li>
                                     <li><a class="dropdown-item" href="modele.php?page=recherche">Recherche</a></li>
+                                    <li><a class="dropdown-item" href="modele.php?page=emploi">Liste d'emploi</a></li>
                                 </ul>
                             </li>
                         </ul>
