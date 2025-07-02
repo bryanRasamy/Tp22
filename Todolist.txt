@@ -18,7 +18,7 @@ ETU004018 - ETU003962
 
 	-listedepartements.php:
 		-liste de tous les departements avec le manager en cours; ok
-		-colonne nombre employer;
+		-colonne nombre employer; ok
 		-lien vers listeemployerpardepartement.php; ok
 
 	-listeemployerpardepartement.php;

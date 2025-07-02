@@ -1,5 +1,6 @@
 <?php
     $liste_departement=get_all_departement();
+    
 ?>
 
 <section>
@@ -11,10 +12,12 @@
             <tr>
                 <th>Nom du departement</th>
                 <th>Manager en cours</th>
+                <th>Nombre d'employé</th>
             </tr>
             <?php foreach($liste_departement as $liste){ ?>
                 <?php 
                     $manager=get_manager_courant($liste['dept_no']);    
+                    $nbemploye= get_nbemployee_par_dept($liste['dept_no']);
                 ?>
                 <tr>
                     <td>
@@ -23,6 +26,7 @@
                         </a>
                     </td>
                     <td><?= $manager['first_name'];?></td>
+                    <td><?= $nbemploye['nombre_employee'] ;?></td>
                 </tr>
             <?php }?>
         </table>

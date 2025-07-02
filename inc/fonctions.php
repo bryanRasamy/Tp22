@@ -108,4 +108,17 @@
         return $demande;
 
     }
+
+    function get_nbemployee_par_dept($id_departement)
+    {
+        $sql = "SELECT COUNT(emp_no) as nombre_employee FROM  dept_emp  WHERE dept_no='%s' AND to_date< NOW() ;";
+        $sql =sprintf($sql,$id_departement);
+        $resultat= mysqli_query(dbconnect(), $sql);
+        $demande=mysqli_fetch_assoc($resultat);
+
+        return $demande;
+    }
+
+
+
 ?>
