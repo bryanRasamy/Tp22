@@ -1,5 +1,5 @@
 <?php
-    // $liste_emploi=get_all_emploi();
+    $liste_emploi=get_all_emploi();
 ?>
 
 <section>
@@ -16,14 +16,15 @@
             </tr>
             <?php foreach($liste_emploi as $liste){ ?>
                 <?php 
-                    // $nbr_employer_homme=get_nbr_employer_par_emploi($liste[''],"M");
-                    // $nbr_employer_femme=get_nbr_employer_par_emploi($liste[''],"F");    
+                    $nbr_employer_homme=get_nbr_employer_par_emploi($liste['title'],"M");
+                    $nbr_employer_femme=get_nbr_employer_par_emploi($liste['title'],"F");    
+
                     // $salaire=get_salaire_moyen_par_emploi($liste['']);
                 ?>
                 <tr>
-                    <td> <?= $liste[''];?></td>
-                    <td><?= $nbr_employer_homme[''];?></td>
-                    <td><?= $nbr_employer_femme[''];?></td>
+                    <td> <?= $liste['title'];?></td>
+                    <td><?= $nbr_employer_homme['nbr'];?></td>
+                    <td><?= $nbr_employer_femme['nbr'];?></td>
                     <td><?= $salaire[''];?></td>
                 </tr>
             <?php }?>

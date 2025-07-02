@@ -2,7 +2,7 @@
     require("connection.php");
 
     function get_all_departement(){
-        $sql="SELECT * FROM departments ORDER BY dept_name ASC";
+        $sql="SELECT * FROM V_nbr_employer_par_departement_global where to_date>NOW() ORDER BY dept_name ASC";
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
 
@@ -14,7 +14,7 @@
     }
 
     function get_employer_par_departement($id_departement){
-        $sql = "SELECT * FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no WHERE dept_no='%s';";
+        $sql = "SELECT * FROM employees JOIN dept_emp  ON employees.emp_no=dept_emp.emp_no WHERE dept_no='%s' ORDER BY last_name ASC;";
         $sql =sprintf($sql,$id_departement);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
@@ -26,17 +26,8 @@
         return $demande;
     }
 
-    function get_manager_courant($id_departement){
-        $sql = "SELECT * FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no WHERE dept_no='%s' AND to_date>'2025-06-24';";
-        $sql =sprintf($sql,$id_departement);
-        $resultat= mysqli_query(dbconnect(), $sql);
-        $demande=mysqli_fetch_assoc($resultat);
-
-        return $demande;
-    }
-
     function get_fiche_employer($id_employer){
-        $sql="SELECT * FROM employees JOIN dept_manager  ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no WHERE employees.emp_no='%s'";
+        $sql="SELECT * FROM employees JOIN dept_emp  ON employees.emp_no=dept_emp.emp_no JOIN departments ON departments.dept_no=dept_emp.dept_no WHERE employees.emp_no='%s'";
         $sql=sprintf($sql,$id_employer);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=mysqli_fetch_assoc($resultat);
@@ -60,7 +51,7 @@
     function get_all_recherche($departement,$nom,$min,$max,$limite){
         $lim="LIMIT ".$limite.",20";
 
-        $base_sql = "SELECT dept_name, last_name, first_name, TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_manager ON employees.emp_no=dept_manager.emp_no JOIN departments ON departments.dept_no=dept_manager.dept_no";
+        $base_sql = "SELECT dept_name, last_name, first_name, TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age FROM employees JOIN dept_emp ON employees.emp_no=dept_emp.emp_no JOIN departments ON departments.dept_no=dept_emp.dept_no";
     
         $conditions = array();  
         $params = array();      
@@ -119,6 +110,25 @@
         return $demande;
     }
 
+    function get_all_emploi(){
+        $sql = "SELECT title FROM  titles GROUP BY title ORDER BY title ASC";
+        $resultat = mysqli_query(dbconnect(), $sql);
+        $demande = array();
+        
+        while($donnee = mysqli_fetch_assoc($resultat)){
+            $demande[] = $donnee;
+        }
+        
+        return $demande;
+    }
 
+    function get_nbr_employer_par_emploi($emploi,$sexe){
+        $sql = "SELECT COUNT(titles.emp_no) as nbr FROM  titles JOIN employees ON titles.emp_no=employees.emp_no WHERE title='%s' AND gender='%s' ORDER BY title ASC";
+        $sql=sprintf($sql,$emploi,$sexe);
 
+        $resultat = mysqli_query(dbconnect(), $sql);
+        $demande=mysqli_fetch_assoc($resultat);
+
+        return $demande;
+    }
 ?>

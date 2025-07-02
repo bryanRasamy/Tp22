@@ -15,18 +15,14 @@
                 <th>Nombre d'employé</th>
             </tr>
             <?php foreach($liste_departement as $liste){ ?>
-                <?php 
-                    $manager=get_manager_courant($liste['dept_no']);    
-                    $nbemploye= get_nbemployee_par_dept($liste['dept_no']);
-                ?>
                 <tr>
                     <td>
                         <a id="a" href="modele.php?page=listeemployerpardepartement&id_departement=<?php echo $liste['dept_no'];?>&nom=<?= $liste['dept_name'];?>">
                             <?= $liste['dept_name'];?>
                         </a>
                     </td>
-                    <td><?= $manager['first_name'];?></td>
-                    <td><?= $nbemploye['nombre_employee'] ;?></td>
+                    <td><?= $liste['first_name'];?></td>
+                    <td><?= $liste['nbr_employer'] ;?></td>
                 </tr>
             <?php }?>
         </table>
