@@ -50,7 +50,7 @@ ETU004018 - ETU003962
 		-age ok
 
 	-emploi.php:
-		-liste d'emploi;
-		-nombre d'employer pour chaque emploi;
-		-salaire moyen pour chaque emploi;
+		-liste d'emploi; ok
+		-nombre d'employer pour chaque emploi; ok
+		-salaire moyen pour chaque emploi; ok
 

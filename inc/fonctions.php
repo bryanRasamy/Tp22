@@ -131,4 +131,13 @@
 
         return $demande;
     }
+
+    function get_salaire_moyen_par_emploi($emploi){
+        $sql="SELECT AVG(salary) as nbr FROM  salaries  JOIN titles ON titles.emp_no=salaries.emp_no WHERE title='%s' ORDER BY title ASC  ";
+        $sql=sprintf($sql,$emploi);
+        $resultat = mysqli_query(dbconnect(), $sql);
+        $demande=mysqli_fetch_assoc($resultat);
+
+        return $demande;
+    }
 ?>

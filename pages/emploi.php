@@ -19,13 +19,13 @@
                     $nbr_employer_homme=get_nbr_employer_par_emploi($liste['title'],"M");
                     $nbr_employer_femme=get_nbr_employer_par_emploi($liste['title'],"F");    
 
-                    // $salaire=get_salaire_moyen_par_emploi($liste['']);
+                    $salaire=get_salaire_moyen_par_emploi($liste['title']);
                 ?>
                 <tr>
                     <td> <?= $liste['title'];?></td>
                     <td><?= $nbr_employer_homme['nbr'];?></td>
                     <td><?= $nbr_employer_femme['nbr'];?></td>
-                    <td><?= $salaire[''];?></td>
+                    <td><?= $salaire['nbr'];?> $</td>
                 </tr>
             <?php }?>
         </table>
