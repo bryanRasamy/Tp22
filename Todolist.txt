@@ -54,3 +54,15 @@ ETU004018 - ETU003962
 		-nombre d'employer pour chaque emploi; ok
 		-salaire moyen pour chaque emploi; ok
 
+	-changerdepartement.php:
+		-afficher departement actuel+date de debut actuel;
+		-formulaire:
+			-choix du departement;
+			-date de debut;
+			-message d'erreur si la date de debut est anterieur a la date de debut actuel;
+
+	-devenirmanager.php:
+		-afficher manager en cours;
+		-formulaire:
+			-date de debut;
+			-message d'erreur si la date de debut est anterieur a la date de debut actuel;	
