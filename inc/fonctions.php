@@ -13,6 +13,18 @@
         return $demande;
     }
 
+    function get_tous_les_departements(){
+        $sql="SELECT DISTINCT dept_name FROM departments ORDER BY dept_name ASC";
+        $resultat= mysqli_query(dbconnect(), $sql);
+        $demande=array();
+
+        while($donnee=mysqli_fetch_assoc($resultat)){
+            $demande[]=$donnee;
+        }
+
+        return $demande;
+    }
+
     function get_employer_par_departement($id_departement){
         $sql = "SELECT * FROM employees JOIN dept_emp  ON employees.emp_no=dept_emp.emp_no WHERE dept_no='%s' ORDER BY last_name ASC;";
         $sql =sprintf($sql,$id_departement);

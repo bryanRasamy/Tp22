@@ -57,11 +57,16 @@ ETU004018 - ETU003962
 		-salaire moyen pour chaque emploi; ok
 
 	-changerdepartement.php:
-		-afficher departement actuel+date de debut actuel;
+		-afficher departement actuel+date de debut actuel; ok
 		-formulaire:
-			-choix du departement;
-			-date de debut;
-			-message d'erreur si la date de debut est anterieur a la date de debut actuel;
+			-choix du departement; ok
+			-date de debut; ok
+			-message d'erreur si la date de debut est anterieur a la date de debut actuel; ok
+
+	-traitementchangerdepartement:
+		-maka ny valeur ao @ changerdepartement.php; 
+		-de ovaina par rapport @ amin'ireo ny ao anatin'ny table; 
+		-redirection vers changerdepartement.php;  
 
 	-devenirmanager.php:
 		-afficher manager en cours;
