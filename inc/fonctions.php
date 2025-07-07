@@ -14,7 +14,7 @@
     }
 
     function get_tous_les_departements(){
-        $sql="SELECT DISTINCT dept_name FROM departments ORDER BY dept_name ASC";
+        $sql="SELECT * FROM departments ORDER BY dept_name ASC";
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
 
@@ -154,8 +154,9 @@
     }
 
     function changer_departement($id_employer,$id_departement,$date){
-        $sql="UPDATE  dept_emp SET dept_no='%s', from_date='%s',to_date=NULL WHERE emp_no='%s'";
-        $sql=sprintf($sql,$id_departement,$date,$id_employer);
+        $sql="INSERT INTO dept_emp VALUES ('%s','%s','%s','9999-02-02')";
+        $sql=sprintf($sql,$id_employer,$id_departement,$date);
+        echo $sql;
         mysqli_query(dbconnect(), $sql);
     }
 ?>
