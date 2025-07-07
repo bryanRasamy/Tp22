@@ -5,10 +5,10 @@
 <section>
     <article class="row">
         <section class="col-3 col-sm-3 col-lg-3">
-            <a type="button" href="modele.php?page=changerdepartement" class="btn btn-outline-success">Changer de departement</a>
+            <a type="button" href="modele.php?page=changerdepartement&id_employer=<?php echo $_GET['id_employer'];?>" class="btn btn-outline-success">Changer de departement</a>
         </section>
         <section class="col-4 col-sm-4 col-lg-4">
-        <a type="button" href="modele.php?page=devenirmanager" class="btn btn-outline-danger">Devenir manager</a>
+        <a type="button" href="modele.php?page=devenirmanager&id_employer=<?php echo $_GET['id_employer'];?>" class="btn btn-outline-danger">Devenir manager</a>
         </section>
     </article>
     <article class="row mt-5">
