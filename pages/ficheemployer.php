@@ -8,7 +8,7 @@
             <a type="button" href="modele.php?page=changerdepartement&id_employer=<?php echo $_GET['id_employer'];?>" class="btn btn-outline-success">Changer de departement</a>
         </section>
         <section class="col-4 col-sm-4 col-lg-4">
-        <a type="button" href="modele.php?page=devenirmanager&id_employer=<?php echo $_GET['id_employer'];?>" class="btn btn-outline-danger">Devenir manager</a>
+        <a type="button" href="modele.php?page=devenirManager&id_employer=<?php echo $_GET['id_employer'];?>" class="btn btn-outline-danger">Devenir manager</a>
         </section>
     </article>
     <article class="row mt-5">
