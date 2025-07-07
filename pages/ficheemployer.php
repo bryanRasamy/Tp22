@@ -4,6 +4,14 @@
 ?>
 <section>
     <article class="row">
+        <section class="col-3 col-sm-3 col-lg-3">
+            <a type="button" href="changerdepartement.php" class="btn btn-outline-success">Changer de departement</a>
+        </section>
+        <section class="col-4 col-sm-4 col-lg-4">
+        <a type="button" href="devenirmanager.php" class="btn btn-outline-danger">Devenir manager</a>
+        </section>
+    </article>
+    <article class="row mt-5">
         <h2 class="text-center">Fiche de <strong style="color:brown"><?=$fiche_employer['last_name']?> <?=$fiche_employer['first_name']?> </strong></h2>
     </article>
     <article class="row">
