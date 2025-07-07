@@ -152,4 +152,10 @@
 
         return $demande;
     }
+
+    function changer_departement($id_employer,$id_departement,$date){
+        $sql="UPDATE  dept_emp SET dept_no='%s', from_date='%s',to_date=NULL WHERE emp_no='%s'";
+        $sql=sprintf($sql,$id_departement,$date,$id_employer);
+        mysqli_query(dbconnect(), $sql);
+    }
 ?>
