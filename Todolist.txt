@@ -29,6 +29,8 @@ ETU004018 - ETU003962
 		-information sur l'employer; ok
 		-mettre l'emploi le plus long;
 		-historique des salaires; ok
+		-bouton changer de departement;
+		-bouton devenir manager;
 		
 	-recherche.php: ok
 		- creation formulaire recherche;ok
