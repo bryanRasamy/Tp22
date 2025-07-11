@@ -13,8 +13,9 @@
         return $demande;
     }
 
-    function get_tous_les_departements(){
-        $sql="SELECT * FROM departments ORDER BY dept_name ASC";
+    function get_tous_les_departements($id_employer){
+        $sql="SELECT * FROM departments WHERE dept_no NOT IN (SELECT dept_no FROM dept_emp WHERE emp_no='%s') ORDER BY dept_name ASC";
+        $sql=sprintf($sql,$id_employer);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
 

@@ -1,6 +1,6 @@
 <?php 
     $fiche_employer=get_fiche_employer($_GET['id_employer']);
-    $departement=get_tous_les_departements();
+    $departement=get_tous_les_departements($_GET['id_employer']);
 ?>
 <div class="row">
     <section class="col-3 col-sm-3 col-3"></section>
