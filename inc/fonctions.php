@@ -26,7 +26,7 @@
     }
 
     function get_employer_par_departement($id_departement){
-        $sql = "SELECT * FROM employees JOIN dept_emp  ON employees.emp_no=dept_emp.emp_no WHERE dept_no='%s' ORDER BY last_name ASC;";
+        $sql = "SELECT * FROM employees JOIN dept_emp  ON employees.emp_no=dept_emp.emp_no WHERE dept_no='%s' AND dept_emp.to_date='9999-01-01' ORDER BY last_name,first_name ASC;";
         $sql =sprintf($sql,$id_departement);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=array();
@@ -39,7 +39,7 @@
     }
 
     function get_fiche_employer($id_employer){
-        $sql="SELECT * FROM employees JOIN dept_emp  ON employees.emp_no=dept_emp.emp_no JOIN departments ON departments.dept_no=dept_emp.dept_no WHERE employees.emp_no='%s'";
+        $sql="SELECT * FROM employees JOIN dept_emp  ON employees.emp_no=dept_emp.emp_no JOIN departments ON departments.dept_no=dept_emp.dept_no WHERE employees.emp_no='%s' AND dept_emp.to_date='9999-01-01'";
         $sql=sprintf($sql,$id_employer);
         $resultat= mysqli_query(dbconnect(), $sql);
         $demande=mysqli_fetch_assoc($resultat);
@@ -154,9 +154,12 @@
     }
 
     function changer_departement($id_employer,$id_departement,$date){
-        $sql="INSERT INTO dept_emp VALUES ('%s','%s','%s','9999-02-02')";
+        $sql1="UPDATE dept_emp SET to_date='%s' WHERE emp_no='%s' AND to_date='9999-01-01'";
+        $sql1=sprintf($sql1,$date,$id_employer);
+        mysqli_query(dbconnect(), $sql1);
+
+        $sql="INSERT INTO dept_emp VALUES ('%s','%s','%s','9999-01-01')";
         $sql=sprintf($sql,$id_employer,$id_departement,$date);
-        echo $sql;
         mysqli_query(dbconnect(), $sql);
     }
 ?>

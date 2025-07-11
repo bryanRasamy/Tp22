@@ -8,5 +8,5 @@
 
     changer_departement($id,$departement,$date);
     
-    // header("Location:modele.php?page=changerdepartement&id_employer=$id");
+    header("Location:modele.php?page=changerdepartement&id_employer=$id");
 ?>
