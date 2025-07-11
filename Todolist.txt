@@ -64,12 +64,12 @@ ETU004018 - ETU003962
 			-message d'erreur si la date de debut est anterieur a la date de debut actuel; ok
 
 	-traitementchangerdepartement:
-		-maka ny valeur ao @ changerdepartement.php; 
-		-de ovaina par rapport @ amin'ireo ny ao anatin'ny table; 
-		-redirection vers changerdepartement.php;  
+		-maka ny valeur ao @ changerdepartement.php; ok
+		-de ovaina par rapport @ amin'ireo ny ao anatin'ny table; ok 
+		-redirection vers changerdepartement.php;  ok
 
 	-devenirmanager.php:
-		-afficher manager en cours;
+		-afficher manager en cours; 
 		-formulaire:
 			-date de debut;
 			-message d'erreur si la date de debut est anterieur a la date de debut actuel;	
